@@ -7,9 +7,6 @@
 
 }
 const joi = require('joi');
-const song = require('../model/songs')
-const { json } = require('express')
-const { number } = require('joi')
 const post = joi.object({
     title: joi.string().required(),
     artist: joi.string().required(),

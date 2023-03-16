@@ -8,15 +8,15 @@ const songsSchema = mongoose.Schema({
     },
     artist: {
         type: String,
-       require: true 
+   required: [true, 'artist is required']  
     },
     album: {
        type: String,
-       require: true  
+     required: [true, 'album is required']   
     },
     genre: {
 type: String,
-       require: true 
+       required: [true, 'genre is required']  
     }
 })
 const Songs = mongoose.model('Songs',songsSchema)

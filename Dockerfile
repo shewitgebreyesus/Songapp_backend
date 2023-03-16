@@ -1,5 +1,5 @@
 FROM node:19
-WORKDIR /usr/src/song_app
+WORKDIR /src
 COPY . .
 RUN npm install
 EXPOSE $5000

@@ -3,11 +3,11 @@ const bodyValidator = (req, res, next)=> {
 
     const { error, value } = update.validate(req.body);
     if (error) {
-        console.log('tefetrual')
         return res.status(400).send(error.message);
     }
     else { 
-        next();
+        req.values = value
+         next();
     }
 
 }

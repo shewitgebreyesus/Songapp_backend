@@ -2,9 +2,15 @@
     ROCK:'rock',
     POP:'pop',
     BLUES:'blues',
-    JAZZ:'jazz',
-  
-
+     JAZZ: 'jazz',
+     HIPHOP: 'hiphop',
+     SOUL:"soul",
+ COUNTRY: "country",
+  REGGAE:"reggae",
+ FUNK: "funk",
+ FOLK: "folk",
+ DISCO: "disco",
+ CLASSICAL: "classical",
 }
 const joi = require('joi');
 const post = joi.object({

@@ -10,12 +10,12 @@ const getSong = async (req, res) => {
 const postSong = async (req, res) => {
   const { error, value } = post.validate(req.body);
   if (error) {
-    return res.status(400).send(error.message);
+    return res.status(400).json({error});
   }
 
   const songExist = await Song.findOne(value)
   if (songExist) {
-     return res.status(400).send('Already Exists');
+    return res.status(400).json({ message: 'Already Exists' });
   }
 
   try {
@@ -30,12 +30,12 @@ const postSong = async (req, res) => {
 const modify = async (req, res) => {
   const { error, value } = isId.validate(req.query);
   if (error) {
-    return res.status(400).send(error.message);
+    return res.status(400).json({error});
   }
   const _id = value.id;
     const data = await Song.findById(_id);
     if (!data) {
-      return res.status(404).send("data not found");
+      return res.status(404).json({ message: "data not found" });
     }
 
   try {
@@ -49,12 +49,12 @@ const modify = async (req, res) => {
 const del = async (req, res) => {
   const { error, value } = isId.validate(req.query);
   if (error) {
-    return res.status(400).send(error.message);
+    return res.status(400).json({ error });
   }
   const _id = value.id;
   const data = Song.findById(_id);
   if (!data) {
-    res.status(400).send("data not found");
+    res.status(400).json({message: "data not found"});
   }
   try {
     await Song.findByIdAndDelete(_id);
